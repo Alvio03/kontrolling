@@ -1,0 +1,29 @@
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .wrapper-header{
+    font-size: 30px !important;
+    font-weight: 700 !important;
+  }
+  .card{
+    width: 28rem;
+  }
+  .wrapper {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .custom-title {
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  @media only screen and (max-width : 1199px) {
+    .card{
+        width: 100%;
+    }
+  }
