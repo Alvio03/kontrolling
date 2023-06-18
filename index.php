@@ -212,16 +212,13 @@ $servo = $data['servo'];
                             <div class="left-content">
                                 <div class="wrapper">
                                     <div class="content">
-                                        <h1 class="custom-title">Relay 3</h1>
-                                        <div class="form-check form-switch py-3" style="font-size : 20px;">
-                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onchange="ubahstatus1(this.checked)" <?php if ($relay1 == 1) echo "checked"; ?>>
-                                            <label class="form-check-label" for="flexSwitchCheckDefault"> <span id="status1"><?php if ($relay1 == 1) echo "ON";
-                                                                                                                                else echo "OFF" ?></span> </label>
-                                        </div>
+                                        <h1 class="custom-title">Servo</h1>
+                                      <div style="text-align :center; font-size : 18px">
+                                <label for="customRange1" class="form-label fw-light py-2">Posisi Servo <span id="posisi"> <?php echo $servo; ?> </span> Derajat</label>
+                                <input type="range" class="form-range" id="customRange1" min="0" max="180" step="1" value="<?php echo $servo; ?>" onchange="ubahposisi(this.value)">
+                            </div>
                                     </div>
-                                    <div class="content">
-                                        <img src="./asset/svgs/light.png" />
-                                    </div>
+                                  
 
                                 </div>
 
@@ -232,31 +229,54 @@ $servo = $data['servo'];
 
             </div>
         </section>
+        
         <!-- AKHIR SECTION RELAY -->
 
-        <!-- SECTION SERVO -->
-        <section>
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="container" id="responsecontainer" style="width : 100%; text-align : center;"></div>
-
-                </div>
-                <div class="col-lg-4">
-                    <div class="card text-black mb-3" style="width: 20rem;">
-                        <div class="card-header" style="font-size : 30px; text-align : center; background-color: blue; color : white">Servo</div>
-                        <div class="card-body">
-                            <!--range / slider-->
-                            <div style="text-align :center; font-size : 18px">
-                                <label for="customRange1" class="form-label">Posisi Servo <span id="posisi"> <?php echo $servo; ?> </span> Derajat</label>
-                                <input type="range" class="form-range" id="customRange1" min="0" max="180" step="1" value="<?php echo $servo; ?>" onchange="ubahposisi(this.value)">
-                            </div>
-                            <!--akhir range / slider-->
+        <!-- SECTION GRAFIK AND TEMP -->
+      <div class="row">
+        <div class="col-md-7 order-1 order-md-0">
+             <div class="">
+            <h3>Grafik sensor secara realtime</h3>
+            <p>(Data yang ditampilkan adalah 5 data terakhir)</p>
+        </div>
+         <div class="">
+            <div class="" id="responsecontainer"></div>
+        </div>
+        </div>
+        <div class="col-md-5 order-0 order-md-1">
+             <h3 class="text-center mb-5">
+                Monitoring Suhu, Kelembaban
+            </h3>
+         <div class="row d-flex gap-5 justify-items-center">
+            <div class="col-12">
+                    <div class="card shadow" style="border-left: 6px solid #40128B; border-radius: 8px; width:100%;">
+                        <div class="custom-card-body py-2 px-5">   
+                        <h3 style=" font-weight: 600;" class="text-center">Suhu</h3>
+                        <h1 class="text-center fw-bold"> 
+                            <span id="ceksuhu" class="text-center">0</span> 
+                        </h1>    
                         </div>
-                    </div>
-                </div>
+                    </div>           
             </div>
-        </section>
-        <!-- AKHIR SECTION SERVO -->
+
+            <div class="col-12">
+                  <div class="card shadow" style="border-left: 6px solid #40128B; border-radius: 8px; width:100%;">
+                        <div class="custom-card-body py-2 px-5">   
+                        <h3 style=" font-weight: 600;" class="text-center">Kelembapan</h3>
+                        <h1 class="text-center fw-bold"> 
+                           <span id="cekkelembaban" class="text-center">0</span> 
+                        </h1>    
+                        </div>
+                    </div>           
+                 </div>
+            </div>
+         </div>
+        </div>
+        </div>
+        </div>
+      </div>
+        <!-- END GRAFIK AND TEMP -->
+     
 
         <!-- tampilan menampilkan relay dan servo -->
         <!-- <div class="card text-black mb-3" style="width: 20rem; margin-right : 10px">
